@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Inicio de sesion
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-center">
+    <div class="title">
+      <h1>SkeletonApp</h1>
+      <h2>Aquí comenzó todo</h2>
+    </div>
+    <ion-card class="custom-card">
+      <ion-card-header>
+        <ion-card-title>Bienvenido</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="usuario">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input [(ngModel)]="usuarioName" formControlName="usuario"></ion-input>
+          </ion-item>
+          <ion-label color="danger" *ngIf="usuario.get('usuario')?.hasError('minlength')">
+            El usuario debe tener al menos 3 caracteres.
+          </ion-label>
+          <ion-label color="danger" *ngIf="usuario.get('usuario')?.hasError('maxlength')">
+            El usuario no puede tener más de 8 caracteres.
+          </ion-label>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input [(ngModel)]="contrasena" formControlName="contrasena" type="password"></ion-input>
+          </ion-item>
+          <ion-label color="danger" *ngIf="usuario.get('contrasena')?.hasError('minlength')">
+            La contraseña debe tener exactamente 4 caracteres.
+          </ion-label>
+          <ion-label color="danger" *ngIf="usuario.get('contrasena')?.hasError('maxlength')">
+            La contraseña debe tener exactamente 4 caracteres.
+          </ion-label>
+          <ion-label color="danger" *ngIf="usuario.get('contrasena')?.hasError('pattern')">
+            La contraseña debe contener solo caracteres numéricos.
+          </ion-label>
+          <ion-button (click)="ingresarUsuario()" type="submit" [disabled]="!usuario.valid">Ingresar</ion-button>
+        </form>
+      </ion-card-content>
+      <ion-button (click)="goToRegistro()" expand="full" color="secondary">Crear cuenta ahora</ion-button>
+      <ion-button expand="full" color="secondary">Recuperar contraseña</ion-button>
+    </ion-card>
+  </div>
+</ion-content>

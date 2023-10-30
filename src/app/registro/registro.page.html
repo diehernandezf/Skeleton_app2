@@ -1,0 +1,113 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Registro
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <div class="ion-text-center">
+    <div class="title">
+      <h1>SkeletonApp</h1>
+      <h2>Aquí comenzó todo</h2>
+    </div>
+    <!-- <ion-card class="custom-card">
+      <ion-card-header>
+        <ion-card-title>Bienvenido</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+         <form [formGroup]="usuario">
+          <form>
+          <ion-item>
+            <ion-label position="floating">Correo</ion-label>
+            <ion-input [(ngModel)]="usuarioName" formControlName="usuario"></ion-input>
+          </ion-item>
+          <ion-label color="danger" *ngIf="usuario.get('usuario')?.hasError('minlength')">
+            El usuario debe tener al menos 3 caracteres.
+          </ion-label>
+          <ion-label color="danger" *ngIf="usuario.get('usuario')?.hasError('maxlength')">
+            El usuario no puede tener más de 8 caracteres.
+          </ion-label>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input [(ngModel)]="contrasena" formControlName="contrasena" type="password"></ion-input>
+          </ion-item>
+           <ion-label color="danger" *ngIf="usuario.get('contrasena')?.hasError('minlength')">
+            La contraseña debe tener exactamente 4 caracteres.
+          </ion-label>
+          <ion-label color="danger" *ngIf="usuario.get('contrasena')?.hasError('maxlength')">
+            La contraseña debe tener exactamente 4 caracteres.
+          </ion-label>
+          <ion-label color="danger" *ngIf="usuario.get('contrasena')?.hasError('pattern')">
+            La contraseña debe contener solo caracteres numéricos.
+          </ion-label>
+
+            <ion-item>
+              <ion-select [(ngModel)]="regionSeleccionada" (ionChange)="cargarComuna()" placeholder="Seleccione Region">
+                <ion-select-option *ngFor="let i of regiones" [value]="i.id">{{i.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-select [disabled]="seleccionComuna" placeholder="Seleccione Comuna" [(ngModel)]="comunaSeleccionada" name="comunaSeleccionada">
+                <ion-select-option [value]="i.id" *ngFor="let i of comunas">{{i.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+
+
+          <ion-button (click)="registrarUsuario()" type="submit">Ingresar</ion-button>
+           <ion-button (click)="registrarUsuario()" type="submit" [disabled]="!usuario.valid">Ingresar</ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card> -->
+
+
+  </div>
+  <ion-content [fullscreen]="true">
+    <ion-card>
+        <form>
+
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <ion-icon class="iconos-registro" name="mail-outline"></ion-icon>
+            </ion-thumbnail>
+                <ion-input [(ngModel)]="usuarioName" name="usuarioName" label="email@email.com"  labelPlacement="floating" type="text"></ion-input>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <ion-icon class="iconos-registro" name="lock-closed-outline"></ion-icon>
+            </ion-thumbnail>
+            <ion-input [(ngModel)]="contrasena" name="contrasena" class="input-password" label="Password input*6 caracteres*"  labelPlacement="floating" type="password" value="password"></ion-input>
+          </ion-item>
+
+          <ion-list>
+            <ion-item>
+              <ion-select (ionChange)="cargarComuna()" placeholder="Seleccione Region" [(ngModel)]="regionSeleccionada" name="regionSeleccionado">
+                <ion-select-option [value]="i.id" *ngFor="let i of regiones">{{i.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+
+          <ion-list>
+            <ion-item>
+              <ion-select placeholder="Seleccione Comuna" [(ngModel)]="comunaSeleccionada" name="comunaSeleccionada">
+                <ion-select-option [value]="i.id" *ngFor="let i of comunas">{{i.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+
+          <div class="container-boton">
+            <ion-button fill="clear" class="boton-registrar" (click)="registrarUsuario()">Registrar</ion-button>
+        </div>
+
+        <br>
+
+      </form>
+    </ion-card>
+  </ion-content>
