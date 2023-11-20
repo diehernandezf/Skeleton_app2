@@ -13,12 +13,12 @@ export class Pagina1Page implements OnInit {
   ngOnInit() {
   }
 
-  goToScanner(){
-
-  }
-
   goToCamara(){
     this.navCtrl.navigateForward('/camara');
+  }
+
+  goToScanner(){
+    this.navCtrl.navigateForward('/scanner');
   }
 
 }

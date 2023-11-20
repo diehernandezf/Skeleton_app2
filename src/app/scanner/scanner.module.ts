@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CamaraPageRoutingModule } from './camara-routing.module';
+import { ScannerPageRoutingModule } from './scanner-routing.module';
 
-import { CamaraPage } from './camara.page';
+import { ScannerPage } from './scanner.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CamaraPageRoutingModule
+    ScannerPageRoutingModule
   ],
-  declarations: [CamaraPage]
+  declarations: [ScannerPage]
 })
-export class CamaraPageModule {}
+export class ScannerPageModule {}

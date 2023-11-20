@@ -1,26 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>camara</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button (click)="takePhoto()">foto</ion-button>
+
+  <ion-button (click)="takePhoto()">
+    Fotito
+  </ion-button>
 
   <ion-card *ngFor="let i of imagenes">
-    <ion-img [src]="i.src"></ion-img>
+    <ion-img [src]="i.src" style="max-width: 500px; max-height: 500px;">
+
+    </ion-img>
   </ion-card>
-  <div class="scanner-shell" [hidden]="!hasDevices">
 
-
-    <section class="results" *ngIf="qrResultString">
-      <small>Result</small>
-      <strong>{{ qrResultString}}</strong>
-    </section>
-
-  </div>
 </ion-content>
-

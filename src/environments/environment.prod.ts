@@ -8,5 +8,6 @@ export const environment = {
     messagingSenderId: "15790442703",
     appId: "1:15790442703:web:a13dd960c894f1c0bc4fba",
     measurementId: "G-5YGL7GH774"
-  }
+  },
+  apiUrl:"https://dev.matiivilla.cl/duoc/location/"
 };
